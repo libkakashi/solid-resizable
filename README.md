@@ -142,10 +142,18 @@ const CustomHandle = () => <div className="custom-handle">||</div>;
 
 ## Styling
 
-You can pass custom styles to the `Resizable` component using the `style` prop. Note that `display` and `flex-direction` properties are not allowed to be set via the `style` prop.
+You can pass custom styles to the `Resizable` component using the `style` prop. Note that `display` and `flex-direction` properties are not allowed to be set via the `style` prop. You can also specify `min-width`, `max-width`, `min-height`, and `max-height` to set bounds for resizability.
 
 ```jsx
-<Resizable style={{ border: '2px dashed red' }}>
+<Resizable
+  style={{
+    border: '2px dashed red',
+    'min-width': '100px',
+    'max-width: '500px',
+    'min-height': '100px',
+    'max-height': '500px'
+  }}
+>
   <ContentComponent />
 </Resizable>
 ```
