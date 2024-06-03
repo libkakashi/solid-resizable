@@ -1,0 +1,4 @@
+{
+  "extends": ["./node_modules/gts/", "plugin:solid/typescript"],
+  "plugins": ["solid"]
+}
