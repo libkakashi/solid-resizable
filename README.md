@@ -1,4 +1,4 @@
-# `solid-resizable`
+# solid-resizable
 
 A `Resizable` component to resize its content by dragging handles on its edges.
 
