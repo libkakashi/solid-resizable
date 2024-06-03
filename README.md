@@ -1,6 +1,6 @@
-# Resizable Component Documentation
+# `solid-resizable`
 
-The `Resizable` component allows users to resize its content by dragging handles on its edges.
+A `Resizable` component to resize its content by dragging handles on its edges.
 
 ## Installation
 To install the `solid-resizable` package, simply use your preferred package manager:
