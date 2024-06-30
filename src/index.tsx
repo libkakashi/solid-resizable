@@ -104,11 +104,7 @@ const Resizable = (props: ResizableProps) => {
     <div
       ref={resizableRef}
       class="resizable"
-      style={{
-        display: 'flex',
-        'flex-direction': 'column',
-        ...props.style,
-      }}
+      style={{display: 'flex', 'flex-direction': 'column', ...props.style}}
     >
       <Show when={props.topHandle}>
         <ResizeHandle
@@ -141,9 +137,7 @@ const Resizable = (props: ResizableProps) => {
             )}
           </ResizeHandle>
         </Show>
-        <div class="resizable-content" style={{flex: '1 1 auto'}}>
-          {props.children}
-        </div>
+        <div style={{flex: '1 1 auto'}}>{props.children}</div>
         <Show when={props.rightHandle}>
           <ResizeHandle
             direction="horizontal"

@@ -1,4 +1,5 @@
 import {createSignal, JSX, onCleanup, createMemo} from 'solid-js';
+import {isServer} from 'solid-js/web';
 import {createMouseDelta} from '../lib/mouseDelta';
 import {debounce} from '@solid-primitives/scheduled';
 
@@ -36,6 +37,13 @@ const ResizeHandle = (props: {
     }, props.debouce || 1)
   );
 
+  const handleMouseUp = () => {
+    setResizing(false);
+    window.removeEventListener('mousemove', handleMouseMove());
+    window.removeEventListener('mouseup', handleMouseUp);
+    props.onResizeStop?.();
+  };
+
   const handleMouseDown = (e: MouseEvent) => {
     setResizing(true);
     mouseDelta.init(e, 1, 1);
@@ -45,16 +53,11 @@ const ResizeHandle = (props: {
     window.addEventListener('mouseup', handleMouseUp);
   };
 
-  const handleMouseUp = () => {
-    setResizing(false);
-    props.onResizeStop?.();
-    window.removeEventListener('mousemove', handleMouseMove());
-    window.removeEventListener('mouseup', handleMouseUp);
-  };
-
   onCleanup(() => {
-    window.removeEventListener('mousemove', handleMouseMove());
-    window.removeEventListener('mouseup', handleMouseUp);
+    if (!isServer) {
+      window.removeEventListener('mousemove', handleMouseMove());
+      window.removeEventListener('mouseup', handleMouseUp);
+    }
   });
 
   return (
