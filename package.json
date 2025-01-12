@@ -7,9 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "gts lint",
     "clean": "gts clean",
-    "fix": "gts fix",
-    "posttest": "npm run lint"
+    "fix": "gts fix"
   },
+  "files": [
+    "src"
+  ],
   "keywords": [
     "solidjs",
     "resize"
@@ -17,8 +19,10 @@
   "author": "Kakashi <chat@libkakashi.dev> (https://libkakashi.dev)",
   "license": "ISC",
   "dependencies": {
-    "@solid-primitives/scheduled": "^1.4.3",
-    "solid-js": "^1.8.17"
+    "@solid-primitives/scheduled": "^1.4.3"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.8.0"
   },
   "devDependencies": {
     "@types/node": "20.11.5",
