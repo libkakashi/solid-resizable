@@ -34,7 +34,7 @@ const ResizeHandle = (props: {
         props.onResize(mouseDelta.deltaX());
       }
       mouseDelta.init(e, 1, 1);
-    }, props.debouce || 1)
+    }, props.debouce || 1),
   );
 
   const handleMouseUp = () => {

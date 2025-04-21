@@ -58,7 +58,7 @@ export type ResizableProps = {
     width: number,
     height: number,
     widthDelta: number,
-    heightDelta: number
+    heightDelta: number,
   ) => void;
   /**
    * Custom styles for the resizable element.
@@ -121,7 +121,14 @@ const Resizable = (props: ResizableProps) => {
           )}
         </ResizeHandle>
       </Show>
-      <div style={{flex: '1 1 auto', display: 'flex'}}>
+      <div
+        style={{
+          display: 'flex',
+          flex: '1 1 auto',
+          'max-height': '100%',
+          'max-width': '100%',
+        }}
+      >
         <Show when={props.leftHandle}>
           <ResizeHandle
             direction="horizontal"
@@ -137,7 +144,11 @@ const Resizable = (props: ResizableProps) => {
             )}
           </ResizeHandle>
         </Show>
-        <div style={{flex: '1 1 auto'}}>{props.children}</div>
+        <div
+          style={{flex: '1 1 auto', 'max-height': '100%', 'max-width': '100%'}}
+        >
+          {props.children}
+        </div>
         <Show when={props.rightHandle}>
           <ResizeHandle
             direction="horizontal"
